@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'roboto';
+  font-weight: 400;
+  list-style: none;
+  text-decoration: none;
+}
+body {
+  background: #98C0FF;
+}
+.main {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.user__item {
+  width: 400px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+/* === Header === */
+.header {
+  width: 100%;
+  min-height: 112px;
+  background: #323232;
+  display: flex;
+  align-items: center;
+  padding: 31px 20px;
+}
+.header__content {
+  width: 153px;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  column-gap: 10px;
+}
+.header__content h2 {
+  font-size: 18px;
+  line-height: 14px;
+  color: #ffffff;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+.header__content p {
+  font-size: 14px;
+  line-height: 18px;
+  color: #ffffff;
+  font-weight: 300;
+}
+/* === Chat body === */
+.chat {
+  height: 632px;
+  padding: 10px;
+  overflow-y: scroll;
+  background: url('../images/bg.png') center center / cover no-repeat;
+}
+.chat::-webkit-scrollbar {
+  width: 5px;
+  background: transparent;
+}
+.chat::-webkit-scrollbar-thumb {
+  width: 100%;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.2);
+}
+.chat-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+.chat-message__body {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.chat-message__info {
+  max-width: 302px;
+  padding: 5px 5px 5px 10px;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000000;
+}
+.chat-message__time {
+  font-size: 14px;
+  line-height: 16px;
+  color: #323232;
+}
+.user__alex .chat-message.alex .chat-message__body,
+.user__jane .chat-message.jane .chat-message__body {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+.user__alex .chat-message.alex .chat-message__info,
+.user__jane .chat-message.jane .chat-message__info {
+  background: #C4BFFF;
+  border-radius: 15px 15px 15px 0px;
+}
+.user__alex .chat-message.jane .chat-message__body,
+.user__jane .chat-message.alex .chat-message__body {
+  justify-content: flex-end;
+}
+.user__alex .chat-message.jane .chat-message__info,
+.user__jane .chat-message.alex .chat-message__info {
+  background: #D0DCFF;
+  border-radius: 15px 15px 0px 15px;
+}
+/* === Footer === */
+.footer {
+  width: 100%;
+  background: #323232;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+}
+.footer textarea {
+  flex-grow: 1;
+  background: none;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 16px;
+  resize: none;
+}
+.footer textarea::-webkit-scrollbar {
+  display: none;
+}
+.footer .send-mess {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer .send-mess img {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
