@@ -96,22 +96,18 @@ body {
   line-height: 16px;
   color: #323232;
 }
-.user__alex .chat-message.get .chat-message__body,
-.user__jane .chat-message.send .chat-message__body {
+.chat-message.get .chat-message__body {
   flex-direction: row-reverse;
   justify-content: flex-end;
 }
-.user__alex .chat-message.get .chat-message__info,
-.user__jane .chat-message.send .chat-message__info {
+.chat-message.get .chat-message__info {
   background: #C4BFFF;
   border-radius: 15px 15px 15px 0px;
 }
-.user__alex .chat-message.send .chat-message__body,
-.user__jane .chat-message.get .chat-message__body {
+.chat-message.send .chat-message__body {
   justify-content: flex-end;
 }
-.user__alex .chat-message.send .chat-message__info,
-.user__jane .chat-message.get .chat-message__info {
+.chat-message.send .chat-message__info {
   background: #D0DCFF;
   border-radius: 15px 15px 0px 15px;
 }

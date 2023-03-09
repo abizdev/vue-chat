@@ -1,21 +1,19 @@
 <template >
   <section class="chat">
     <ul class="chat-list">
-      <li class="chat-message get">
+      <li 
+        class="chat-message" 
+        v-for="(item, key) in messages"
+        :class="{
+          get: item.id != id,
+          send: item.id == id,
+        }"
+      >
         <div class="chat-message__body">
-          <span class="chat-message__time">12:21</span>
+          <span class="chat-message__time">{{ item.time }}</span>
           <div class="chat-message__info">
-            <img src="" alt="" v-if="false">
-            <p>Привет. Как дела? Где ты изучаешь программирование?</p>
-          </div>
-        </div>
-      </li>
-      <li class="chat-message send">
-        <div class="chat-message__body">
-          <span class="chat-message__time">12:41</span>
-          <div class="chat-message__info">
-            <img src="" alt="" v-if="false">
-            <p>Привет. Нормально. Как у тебя дела? Я учусь в учебном центре PROWEB</p>
+            <!-- <img src="" alt="" v-if="false"> -->
+            <p>{{ item.text }}</p>
           </div>
         </div>
       </li>
@@ -24,7 +22,14 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
-  
+  props: {
+    id: Number
+  },
+  computed: {
+    ...mapState(['messages'])
+  }  
 }
 </script>
