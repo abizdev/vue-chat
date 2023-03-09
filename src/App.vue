@@ -29,7 +29,10 @@ export default {
     Modal,
   },
   methods: {
-    ...mapActions(['toggleModal'])
+    ...mapActions(['toggleModal', 'loadFromLocal'])
+  },
+  created() {
+    this.loadFromLocal()
   },
 }
 </script>

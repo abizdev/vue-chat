@@ -22,7 +22,7 @@ export default {
   methods: {
     ...mapActions(['toggleModal']),
     sendMsg() {      
-      console.log('footer comp', this.messages);
+      // console.log('footer comp', this.messages);
       this.$store.dispatch('sendMsg', {
         id: this.id,
         text: this.text,
@@ -35,10 +35,5 @@ export default {
   computed: {
     ...mapState(['messages'])
   },
-  watch: {
-    message(){
-      console.log('changed');
-    }
-  }
 }
 </script>

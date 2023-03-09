@@ -13,6 +13,12 @@ const store = createStore({
     addMsg(state, payload) {
       state.messages.push(payload)
       console.log(state.messages);
+      localStorage.setItem('messages', JSON.stringify(state.messages))
+    },
+    loadFromLocal(state) {
+      state.messages = localStorage.messages 
+                       ? localStorage.getItem(JSON.parse('messages'))
+                       : []
     }
   },
   actions: {
@@ -21,6 +27,9 @@ const store = createStore({
     },
     sendMsg({commit}, obj) {
       commit('addMsg', obj)
+    },
+    loadFromLocal({commit}){
+      commit('loadFromLocal')
     }
   },
   getters: {},
