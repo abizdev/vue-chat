@@ -1,7 +1,7 @@
 <template >
   <section class="chat">
     <ul class="chat-list">
-      <li class="chat-message alex">
+      <li class="chat-message get">
         <div class="chat-message__body">
           <span class="chat-message__time">12:21</span>
           <div class="chat-message__info">
@@ -10,7 +10,7 @@
           </div>
         </div>
       </li>
-      <li class="chat-message jane">
+      <li class="chat-message send">
         <div class="chat-message__body">
           <span class="chat-message__time">12:41</span>
           <div class="chat-message__info">

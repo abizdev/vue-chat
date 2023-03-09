@@ -11,18 +11,21 @@
       <app-footer :id="2" />
     </div>
   </main>
+  <modal />
 </template>
 
 <script>
 import AppHeader from './components/Header.vue'
 import AppBody from './components/Body.vue'
 import AppFooter from './components/Footer.vue'
+import Modal from './components/Modal.vue'
 
 export default {
   components: {
     AppHeader,
     AppBody,
     AppFooter,
-  }
+    Modal,
+  },
 }
 </script>
