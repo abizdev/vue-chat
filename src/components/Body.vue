@@ -12,7 +12,7 @@
         <div class="chat-message__body">
           <span class="chat-message__time">{{ item.time }}</span>
           <div class="chat-message__info">
-            <!-- <img src="" alt="" v-if="false"> -->
+            <img :src="item.img" v-if="item.img" alt="item">
             <p>{{ item.text }}</p>
           </div>
         </div>

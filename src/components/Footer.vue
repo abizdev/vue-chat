@@ -6,34 +6,33 @@
       <img src="../../public/images/photo.svg" alt="photo" v-else @click="toggleModal">
     </div>
   </footer>
+  
+  <modal :id="userId" />
 </template>
 
 <script>
+import Modal from '../components/Modal.vue'
 import { mapActions, mapState } from 'vuex'
 
 export default {
+  components: { Modal },
   props: ['id'],
   data() {
     return {
+      userId: this.id,
       text: '',
-      // message: {},
     }
   },
   methods: {
     ...mapActions(['toggleModal']),
-    sendMsg() {      
-      // console.log('footer comp', this.messages);
+    sendMsg() {
       this.$store.dispatch('sendMsg', {
         id: this.id,
         text: this.text,
         time: `${new Date().getHours()}:${new Date().getMinutes()}`
       })
       this.text = ''
-    }
-    
-  },
-  computed: {
-    ...mapState(['messages'])
+    },
   },
 }
 </script>
