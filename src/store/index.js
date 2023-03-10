@@ -16,8 +16,8 @@ const store = createStore({
       localStorage.setItem('messages', JSON.stringify(state.messages))
     },
     loadFromLocal(state) {
-      state.messages = localStorage.messages 
-                       ? localStorage.getItem(JSON.parse('messages'))
+      state.messages = localStorage.messages
+                       ? JSON.parse(localStorage.messages)
                        : []
     }
   },
