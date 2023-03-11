@@ -1,7 +1,7 @@
 <template>
-  <div class="modal" :class="{active: modalActive}" @click="closeModal">
+  <div class="modal" :class="{active: modalActive}" @click="clearAndCloseModal">
     <div class="modal-content" @click.stop>
-      <h2>Отправить картинку</h2>
+      <h2><!-- Отправить картинку  -->{{ id }}</h2>
       <div class="modal__inp modal--img">
         <label class="modal__inp-label">URL</label>
         <input type="text" v-model="img">
@@ -21,9 +21,12 @@
 <script>
 import { mapState, mapActions } from 'vuex'
 export default {
-  props: ['id'],
+  props: {
+    id: Number
+  },
   data() {
     return {
+      userId: this.id,
       img: '',
       message: '',
     }
@@ -34,22 +37,19 @@ export default {
   methods: {
     ...mapActions(['toggleModal']),
     sendMessageAndImg() {
-      // console.log('this id from props: ', this.id);
       if(this.img.length && this.message.length) {
-        console.log(this.id, this.img, this.message);
+        console.log(this.id);
         this.$store.dispatch('sendMessageAndImg', {
           id: this.id,
           img: this.img,
           text: this.message,
           time: `${new Date().getHours()}:${new Date().getMinutes()}`
         })
-        this.img = ''
-        this.message = ''
-        this.toggleModal()
+        this.clearAndCloseModal()
       }
     },
-    closeModal() {
-      this.img = '',
+    clearAndCloseModal() {
+      this.img = ''
       this.message = ''
       this.toggleModal()
     }

@@ -7,25 +7,26 @@
     </div>
   </footer>
   
-  <modal :id="userId" />
+  <!-- <modal :id="id" /> -->
 </template>
 
 <script>
-import Modal from '../components/Modal.vue'
-import { mapActions, mapState } from 'vuex'
+// import Modal from '../components/Modal.vue'
+import { mapActions } from 'vuex'
 
 export default {
-  components: { Modal },
+  // components: { Modal },
   props: ['id'],
   data() {
     return {
-      userId: this.id,
       text: '',
     }
   },
   methods: {
     ...mapActions(['toggleModal']),
+    
     sendMsg() {
+      console.log("footer id: ", this.id);
       this.$store.dispatch('sendMsg', {
         id: this.id,
         text: this.text,
