@@ -3,28 +3,30 @@
     <textarea placeholder="Написать сообщение..." rows="1" v-model="text"></textarea>
     <div class="send-mess">
       <img src="../../public/images/send.svg" alt="send" v-if="text.length" @click="sendMsg">
-      <img src="../../public/images/photo.svg" alt="photo" v-else @click="toggleModal">
+      <img src="../../public/images/photo.svg" alt="photo" v-else @click="toggleModal" >
     </div>
   </footer>
   
-  <!-- <modal :id="id" /> -->
+  <modal :id="id" :modalAct="modalActive" @modal-toggle="toggleModal" />
 </template>
 
 <script>
-// import Modal from '../components/Modal.vue'
-import { mapActions } from 'vuex'
+import Modal from '../components/Modal.vue'
 
 export default {
-  // components: { Modal },
+  components: { Modal },
   props: ['id'],
   data() {
     return {
       text: '',
+      modalActive: false
     }
   },
   methods: {
-    ...mapActions(['toggleModal']),
-    
+    toggleModal() {
+      console.log('toggled');
+      this.modalActive = !this.modalActive
+    },
     sendMsg() {
       console.log("footer id: ", this.id);
       this.$store.dispatch('sendMsg', {

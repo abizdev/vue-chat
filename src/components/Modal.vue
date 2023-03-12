@@ -1,7 +1,7 @@
 <template>
-  <div class="modal" :class="{active: modalActive}" @click="clearAndCloseModal">
+  <div class="modal" :class="{active: modalAct}" @click="clearAndCloseModal">
     <div class="modal-content" @click.stop>
-      <h2><!-- Отправить картинку  -->{{ id }}</h2>
+      <h2>Отправить картинку</h2>
       <div class="modal__inp modal--img">
         <label class="modal__inp-label">URL</label>
         <input type="text" v-model="img">
@@ -11,31 +11,24 @@
         <textarea rows="1" v-model="message"></textarea>
       </div>
       <div class="modal-btns">
-        <button class="modal-del" @click="toggleModal">Отмена</button>
+        <button class="modal-del" @click="clearAndCloseModal">Отмена</button>
         <button class="modal-edit" @click="sendMessageAndImg">ОТПРАВИТЬ</button>
       </div>
     </div>
   </div>
+  
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
 export default {
-  props: {
-    id: Number
-  },
+  props: ['id', 'modalAct'],
   data() {
     return {
-      userId: this.id,
       img: '',
       message: '',
     }
   },
-  computed: {
-    ...mapState(['modalActive'])
-  },
   methods: {
-    ...mapActions(['toggleModal']),
     sendMessageAndImg() {
       if(this.img.length && this.message.length) {
         console.log(this.id);
@@ -51,7 +44,7 @@ export default {
     clearAndCloseModal() {
       this.img = ''
       this.message = ''
-      this.toggleModal()
+      this.$emit('modalToggle')
     }
   },
 }

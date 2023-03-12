@@ -4,13 +4,11 @@
       <app-header :name="'Александр'" :src="'alex'" />
       <app-body :id="1"/>
       <app-footer :id="1" />
-      <modal :id="1" />
     </div>
     <div class="user__item user__jane">
       <app-header :name="'Евгений'" :src="'jane'" />
       <app-body :id="2"/>
       <app-footer :id="2" />
-      <modal :id="2" />
     </div>
   </main>
 </template>
@@ -27,7 +25,6 @@ export default {
     AppHeader,
     AppBody,
     AppFooter,
-    Modal
   },
   methods: {
     ...mapActions(['loadFromLocal'])
