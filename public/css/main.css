@@ -7,17 +7,13 @@
   list-style: none;
   text-decoration: none;
 }
-body {
-  background: #98C0FF;
-}
 .main {
+  background: #98C0FF;
   width: 100%;
+  height: 100vh;
   position: absolute;
-  /* top: 0; */
-  /* left: 0; */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -153,16 +149,13 @@ body {
   width: 100%;
   height: 100vh;
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(0, 0, 0, 0.2);
-  display: none;
+  top: 0;
+  left: 0;
+  display: flex;
   justify-content: center;
   align-items: center;
-}
-.modal.active {
-  display: flex;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(15px);
 }
 .modal-content {
   background: #F2F7FF;
@@ -219,4 +212,24 @@ body {
 }
 .modal-edit {
   color: #6750A4;
+}
+/* Modal animation */
+.scale-enter-active,
+.scale-leave-active {
+  transition: all 0.5s;
+}
+.scale-enter-from,
+.scale-leave-to {
+  transform: scale(3);
+  opacity: 0;
+}
+/* List animation */
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.3s ease;
+}
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: scale(0.9);
 }

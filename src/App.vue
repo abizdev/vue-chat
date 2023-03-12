@@ -17,7 +17,6 @@
 import AppHeader from './components/Header.vue'
 import AppBody from './components/Body.vue'
 import AppFooter from './components/Footer.vue'
-import Modal from './components/Modal.vue'
 import { mapActions } from 'vuex'
 
 export default {

@@ -7,7 +7,7 @@
     </div>
   </footer>
   
-  <modal :id="id" :modalAct="modalActive" @modal-toggle="toggleModal" />
+  <modal :id="id" v-show="modalActive" @modal-toggle="toggleModal" />
 </template>
 
 <script>
@@ -24,11 +24,9 @@ export default {
   },
   methods: {
     toggleModal() {
-      console.log('toggled');
       this.modalActive = !this.modalActive
     },
     sendMsg() {
-      console.log("footer id: ", this.id);
       this.$store.dispatch('sendMsg', {
         id: this.id,
         text: this.text,
