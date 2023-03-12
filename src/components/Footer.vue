@@ -1,6 +1,6 @@
 <template >
   <footer class="footer">
-    <textarea placeholder="Написать сообщение..." rows="1" v-model="text"></textarea>
+    <textarea placeholder="Написать сообщение..." rows="1" v-model="text" @keyup.enter="sendMsg"></textarea>
     <div class="send-mess">
       <img src="../../public/images/send.svg" alt="send" v-if="text.length" @click="sendMsg">
       <img src="../../public/images/photo.svg" alt="photo" v-else @click="toggleModal" >

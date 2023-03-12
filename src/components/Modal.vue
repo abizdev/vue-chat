@@ -8,7 +8,7 @@
       </div>
       <div class="modal__inp modal--text">
         <label class="modal__inp-label">Комментарий</label>
-        <textarea rows="1" v-model="message"></textarea>
+        <textarea rows="1" v-model="message" @keyup.enter="sendMessageAndImg"></textarea>
       </div>
       <div class="modal-btns">
         <button class="modal-del" @click="clearAndCloseModal">Отмена</button>
